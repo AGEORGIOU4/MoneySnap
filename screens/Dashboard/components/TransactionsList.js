@@ -24,7 +24,7 @@ const renderTransaction = ({ item }) => (
   </View>
 );
 
-const RenderTransactions = () => {
+const renderTransactions = () => {
   return (
     <FlatList
       data={transactions}
@@ -80,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RenderTransactions;
+export default renderTransactions;

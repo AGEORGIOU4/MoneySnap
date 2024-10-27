@@ -107,11 +107,11 @@ class Header extends React.Component {
           <BellButton key="chat-search" navigation={navigation} isWhite={white} />,
           <BasketButton key="basket-search" navigation={navigation} isWhite={white} />
         ];
-        case 'Agreement':
-          return [
-            <BellButton key="chat-search" navigation={navigation} isWhite={white} />,
-            <BasketButton key="basket-search" navigation={navigation} isWhite={white} />
-          ];
+      case 'Agreement':
+        return [
+          <BellButton key="chat-search" navigation={navigation} isWhite={white} />,
+          <BasketButton key="basket-search" navigation={navigation} isWhite={white} />
+        ];
       default:
         break;
     }
@@ -125,7 +125,7 @@ class Header extends React.Component {
         style={styles.search}
         placeholder="What are you looking for?"
         placeholderTextColor={'#8898AA'}
-        onFocus={() => {Keyboard.dismiss(); navigation.navigate('Search');}}
+        onFocus={() => { Keyboard.dismiss(); navigation.navigate('Search'); }}
         iconContent={
           <Icon size={16} color={theme.COLORS.MUTED} name="zoom-bold2x" family="NowExtra" />
         }
@@ -150,7 +150,7 @@ class Header extends React.Component {
               style={{ paddingRight: 8 }}
               color={nowTheme.COLORS.HEADER}
             />
-            <Text style={{ fontFamily: 'montserrat-regular' }} size={16} style={styles.tabTitle}>
+            <Text size={16} style={styles.tabTitle}>
               {optionLeft || 'Trending'}
             </Text>
           </Block>
@@ -164,7 +164,7 @@ class Header extends React.Component {
               style={{ paddingRight: 8 }}
               color={nowTheme.COLORS.HEADER}
             />
-            <Text style={{ fontFamily: 'montserrat-regular' }} size={16} style={styles.tabTitle}>
+            <Text size={16} style={styles.tabTitle}>
               {optionRight || 'Fashion'}
             </Text>
           </Block>
@@ -219,7 +219,7 @@ class Header extends React.Component {
       transparent ? { backgroundColor: 'rgba(0,0,0,0)' } : null
     ];
 
-    const navbarStyles = [styles.navbar, bgColor && { backgroundColor: bgColor } ];
+    const navbarStyles = [styles.navbar, bgColor && { backgroundColor: bgColor }];
 
     return (
       <Block style={headerStyles}>
@@ -280,8 +280,8 @@ const styles = StyleSheet.create({
   shadowless: {
     elevation: 0,
     shadowOpacity: 0,
-    shadowOffset: { 
-      height: 0, 
+    shadowOffset: {
+      height: 0,
     },
     shadowRadius: 0
   },

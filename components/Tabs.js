@@ -4,6 +4,7 @@ import { Block, theme } from 'galio-framework';
 
 const { width } = Dimensions.get('screen');
 import nowTheme from '../constants/Theme';
+import Theme from '../constants/Theme';
 
 const defaultMenu = [
   { id: 'music', title: 'Music', },
@@ -121,7 +122,7 @@ export default class Tabs extends React.Component {
 const styles = StyleSheet.create({
   container: {
     width: width,
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: Theme.COLORS.BACKGROUND,
     zIndex: 2,
   },
   shadow: {
@@ -133,7 +134,7 @@ const styles = StyleSheet.create({
   },
   menu: {
     paddingHorizontal: theme.SIZES.BASE * 2.5,
-    paddingTop: 8,
+    paddingTop: 16,
     paddingBottom: 16,
   },
   titleContainer: {

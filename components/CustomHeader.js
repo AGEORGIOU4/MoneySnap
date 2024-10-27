@@ -1,11 +1,10 @@
 import React from 'react';
 import { withNavigation } from '@react-navigation/compat';
-import { TouchableOpacity, StyleSheet, Platform, Dimensions, Keyboard } from 'react-native';
-import { Button, Block, NavBar, Text, theme, Button as GaButton } from 'galio-framework';
+import { StyleSheet, Platform, Dimensions, Keyboard } from 'react-native';
+import { Block, NavBar, theme, Button as GaButton } from 'galio-framework';
 
 import Icon from './Icon';
 import Input from './Input';
-import Tabs from './Tabs';
 import nowTheme from '../constants/Theme';
 import { CalendarButton } from './CalendarButton';
 
@@ -46,30 +45,12 @@ class CustomHeader extends React.Component {
     );
   };
 
-  renderTabs = () => {
-    const { tabs, tabIndex, navigation } = this.props;
-    const defaultTab = tabs && tabs[0] && tabs[0].id;
-
-    if (!tabs) return null;
-
-    return (
-      <Block style={styles.tabs}>
-        <Tabs
-          data={tabs || []}
-          initialIndex={tabIndex || defaultTab}
-          onChange={id => navigation.setParams({ tabId: id })}
-        />
-      </Block>
-    );
-  };
-
   renderHeader = () => {
-    const { search, options, tabs } = this.props;
-    if (search || tabs || options) {
+    const { search, options } = this.props;
+    if (search || options) {
       return (
         <Block center>
           {search ? this.renderSearch() : null}
-          {tabs ? this.renderTabs() : null}
         </Block>
       );
     }
@@ -184,26 +165,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 30,
     borderColor: nowTheme.COLORS.BORDER
-  },
-  tabs: {
-    marginBottom: 10,
-    marginTop: 10,
-    justifyContent: 'center',
-    display: 'flex'
-  },
-  tab: {
-    backgroundColor: theme.COLORS.TRANSPARENT,
-    width: width * 0.35,
-    borderRadius: 0,
-    borderWidth: 0,
-    height: 24,
-    elevation: 0
-  },
-  tabTitle: {
-    lineHeight: 19,
-    fontWeight: '400',
-    color: nowTheme.COLORS.HEADER,
-    fontFamily: 'montserrat-regular'
   },
   social: {
     width: theme.SIZES.BASE * 3.5,
