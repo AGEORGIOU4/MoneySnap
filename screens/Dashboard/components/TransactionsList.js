@@ -3,6 +3,7 @@ import { FlatList, View, Text, StyleSheet, Image } from 'react-native';
 import DataContext from '../../../api/DataContext';
 import { styles } from '../styles/Styles';
 import { monthNames } from '../../../constants/months';
+import { Block } from 'galio-framework';
 
 // Sample JSON data for transactions
 const transactions = [
@@ -50,6 +51,7 @@ const Transactions = () => {
       keyExtractor={item => item.id}
       contentContainerStyle={styles.transactionList}
     />
+
   );
 };
 

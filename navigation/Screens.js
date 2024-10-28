@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import { createStackNavigator } from "@react-navigation/stack";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
@@ -40,6 +40,7 @@ import CustomDrawerContent from './Menu';
 import Header from '../components/Header';
 import tabs from "../constants/tabs";
 import CustomHeader from '../components/CustomHeader';
+import FloatingButton from '../components/FloatingButton';
 
 const { width } = Dimensions.get("screen");
 
@@ -347,33 +348,38 @@ function AccountStack(props) {
 // All  stack screens for preloading
 function DashboardStack(props) {
   return (
-    <Stack.Navigator mode="card" headerMode="screen" initialRouteName="Dashboard">
-      <Stack.Screen
-        name="Dashboard"
-        component={Dashboard}
-        options={{
-          header: ({ navigation, scene }) => (
-            <CustomHeader
-              title="Dashboard"
-              search
-              navigation={navigation}
-              scene={scene}
-            />
-          ),
-          cardStyle: { backgroundColor: "#FFFFFF" }
-        }}
+    <View style={{ flex: 1 }}>
+      <Stack.Navigator mode="card" headerMode="screen" initialRouteName="Dashboard">
+        <Stack.Screen
+          name="Dashboard"
+          component={Dashboard}
+          options={{
+            header: ({ navigation, scene }) => (
+              <CustomHeader
+                title="Dashboard"
+                search
+                navigation={navigation}
+                scene={scene}
+              />
+            ),
+            cardStyle: { backgroundColor: "#FFFFFF" }
+          }}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
+          options={{
+            header: ({ navigation, scene }) => (
+              <Header title="Search" back navigation={navigation} scene={scene} />
+            ),
+            cardStyle: { backgroundColor: "#FFFFFF" }
+          }}
+        />
+      </Stack.Navigator>
+      <FloatingButton
+      // onPress={} 
       />
-      <Stack.Screen
-        name="Search"
-        component={Search}
-        options={{
-          header: ({ navigation, scene }) => (
-            <Header title="Search" back navigation={navigation} scene={scene} />
-          ),
-          cardStyle: { backgroundColor: "#FFFFFF" }
-        }}
-      />
-    </Stack.Navigator>
+    </View>
   );
 }
 
