@@ -1,11 +1,11 @@
 import React from 'react';
 import { StyleSheet } from "react-native";
-import renderTransactions from "./TransactionsList";
 import { Text, theme } from "galio-framework";
+import Transactions from './TransactionsList';
 
 export const CContent = ({ selectedTab }) => {
   if (selectedTab === 'expenses') {
-    return renderTransactions()
+    return <Transactions />
   } else if (selectedTab === 'income') {
     return <Text style={styles.incomeText}>Income Overview Placeholder</Text>;
   }

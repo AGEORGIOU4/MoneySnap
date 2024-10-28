@@ -9,7 +9,6 @@ export const CalendarButton = () => {
   const [isCalendarVisible, setCalendarVisible] = useState(false);
 
   const toggleDatePicker = () => {
-    console.log('clicked');
     setCalendarVisible((prev) => !prev);
   };
 
@@ -27,6 +26,7 @@ export const CalendarButton = () => {
   return (
     <View>
       <TouchableOpacity onPress={toggleDatePicker} style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <Text style={{ marginRight: 10 }}>October</Text>
         <Icon family="NowExtra" size={16} name="calendar-602x" color="black" />
       </TouchableOpacity>
 

@@ -1,50 +1,36 @@
-import React from "react";
-import { StyleSheet, Dimensions } from "react-native";
-import { Block, theme } from "galio-framework";
-import { CTabs, renderTabs } from "./components/CTabs";
+import React, { useContext, useState } from "react";
+import { Block, } from "galio-framework";
+import { CTabs } from "./components/CTabs";
 import { CContent } from "./components/CContent";
+import { styles } from "./styles/Styles";
+import { View, } from 'react-native';
+import MonthPicker from "../../components/MonthPicker";
+import YearPicker from "../../components/YearPicker";
+import DataContext from "../../api/DataContext";
 
-const { width } = Dimensions.get("screen");
+const Dashboard = () => {
+  const [selectedTab, setSelectedTab] = useState('expenses');
+  const { data, setData } = useContext(DataContext);
 
-class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedTab: 'expenses',
-    };
-  }
-
-  handleTabChange = (selectedTab) => {
-    this.setState({ selectedTab });
+  const handleTabChange = (selectedTab) => {
+    setSelectedTab(selectedTab)
   };
 
-  render() {
-    return (
+  return (
+    <DataContext.Provider value={{ data, setData }}>
       <Block style={styles.block}>
-        <CTabs selectedTab={this.state.selectedTab} onChange={this.handleTabChange} />
-        <CContent selectedTab={this.state.selectedTab} />
+        <CTabs selectedTab={selectedTab} onChange={handleTabChange} />
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 10, paddingRight: 10 }}>
+          <MonthPicker />
+          <YearPicker />
+        </View>
+        <CContent selectedTab={selectedTab} />
       </Block>
-    );
-  }
+    </DataContext.Provider>
+  );
+
 }
 
-const styles = StyleSheet.create({
-  block: {
-    backgroundColor: '#f5f5f5',
-    width: width,
-    height: "100%",
-  },
-  tabs: {
-    marginTop: 10,
-    backgroundColor: '#f5f5f5',
-  },
-  incomeText: {
-    marginTop: 20,
-    textAlign: 'center',
-    color: theme.COLORS.HEADER,
-    fontFamily: "montserrat-regular",
-    fontSize: 16,
-  },
-});
+
 
 export default Dashboard;

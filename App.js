@@ -12,6 +12,7 @@ enableScreens();
 
 import Screens from "./navigation/Screens";
 import { Images, articles, nowTheme } from "./constants";
+import { DataProvider } from "./api/DataContext";
 
 // cache app images
 const assetImages = [
@@ -70,7 +71,9 @@ export default class App extends React.Component {
         <NavigationContainer>
           <GalioProvider theme={nowTheme}>
             <Block flex>
-              <Screens />
+              <DataProvider>
+                <Screens />
+              </DataProvider>
             </Block>
           </GalioProvider>
         </NavigationContainer>

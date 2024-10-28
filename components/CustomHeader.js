@@ -7,6 +7,7 @@ import Icon from './Icon';
 import Input from './Input';
 import nowTheme from '../constants/Theme';
 import { CalendarButton } from './CalendarButton';
+import MonthPicker from './MonthPicker';
 
 const { height, width } = Dimensions.get('window');
 const iPhoneX = () =>
@@ -23,7 +24,6 @@ class CustomHeader extends React.Component {
     // const { routeName } = navigation.state;
 
     return [
-      <CalendarButton key="calendar-home" isWhite={white} />
     ];
 
   };
@@ -37,7 +37,7 @@ class CustomHeader extends React.Component {
         style={styles.search}
         placeholder="What are you looking for?"
         placeholderTextColor={'#8898AA'}
-        onFocus={() => { Keyboard.dismiss(); navigation.navigate('Search'); }}
+        // onFocus={() => { Keyboard.dismiss(); navigation.navigate('Search'); }}
         iconContent={
           <Icon size={16} color={theme.COLORS.MUTED} name="zoom-bold2x" family="NowExtra" />
         }

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Block } from "galio-framework";
 import Tabs from "../../../components/Tabs";
-
 const tab_options = {
   dashboard: [
     { id: 'expenses', title: 'Expenses' },
@@ -20,6 +19,7 @@ export const CTabs = ({ onChange }) => {
         initialIndex={defaultTab}
         onChange={(id) => onChange(id)}
       />
+
     </Block>
   );
 };
