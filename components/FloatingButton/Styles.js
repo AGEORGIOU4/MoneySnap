@@ -1,7 +1,6 @@
-import { StyleSheet, Dimensions } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { theme } from 'galio-framework';
 
-const { width } = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
   input: {
@@ -85,5 +84,22 @@ export const styles = StyleSheet.create({
     height: 40,
     shadowRadius: 0,
     shadowOpacity: 0,
+  },
+  badgeContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    marginVertical: 10,
+  },
+  badge: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 20,
+    margin: 5,
+  },
+  badgeText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
