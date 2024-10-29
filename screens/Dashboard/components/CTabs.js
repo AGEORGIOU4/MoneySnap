@@ -1,10 +1,12 @@
 import React from 'react';
 import { Block } from "galio-framework";
 import Tabs from "../../../components/Tabs";
+
 const tab_options = {
   dashboard: [
-    { id: 'expenses', title: 'Expenses' },
-    { id: 'income', title: 'Income' },
+    { id: 'Expenses', title: 'Expenses' },
+    { id: 'Income', title: 'Income' },
+    { id: 'Transfers', title: 'Transfers' },
   ],
 };
 

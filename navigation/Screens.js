@@ -40,7 +40,7 @@ import CustomDrawerContent from './Menu';
 import Header from '../components/Header';
 import tabs from "../constants/tabs";
 import CustomHeader from '../components/CustomHeader';
-import FloatingButton from '../components/FloatingButton';
+import FloatingButton from '../components/FloatingButton/FloatingButton';
 
 const { width } = Dimensions.get("screen");
 

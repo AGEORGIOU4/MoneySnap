@@ -4,10 +4,12 @@ import { Text, theme } from "galio-framework";
 import Transactions from './TransactionsList';
 
 export const CContent = ({ selectedTab }) => {
-  if (selectedTab === 'expenses') {
+  if (selectedTab === 'Expenses') {
     return <Transactions />
-  } else if (selectedTab === 'income') {
+  } else if (selectedTab === 'Income') {
     return <Text style={styles.incomeText}>Income Overview Placeholder</Text>;
+  } else if (selectedTab === 'Transfers') {
+    return <Text style={styles.incomeText}>Transfers Overview Placeholder</Text>;
   }
 
 }

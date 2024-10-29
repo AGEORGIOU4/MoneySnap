@@ -9,11 +9,13 @@ import YearPicker from "../../components/YearPicker";
 import DataContext from "../../api/DataContext";
 
 const Dashboard = () => {
-  const [selectedTab, setSelectedTab] = useState('expenses');
+  const [selectedTab, setSelectedTab] = useState('Expenses');
   const { data, setData } = useContext(DataContext);
 
-  const handleTabChange = (selectedTab) => {
-    setSelectedTab(selectedTab)
+  console.log(data)
+  const handleTabChange = (value) => {
+    setSelectedTab(value)
+    setData({ ...data, selectedTab: value });
   };
 
   return (

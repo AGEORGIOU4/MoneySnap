@@ -1,15 +1,14 @@
 // DataContext.js
 import React, { createContext, useState } from 'react';
-import { months } from '../constants/months';
+import { default_data_context } from './default_data';
 
 // Create a context
 const DataContext = createContext();
 
 // Create a provider component
 export const DataProvider = ({ children }) => {
-  const currentYear = new Date().getFullYear().toString();
-  const currentMonth = months[new Date().getMonth()];
-  const [data, setData] = useState({ year: currentYear, month: currentMonth });
+
+  const [data, setData] = useState(default_data_context);
 
   return (
     <DataContext.Provider value={{ data, setData }}>
