@@ -376,9 +376,7 @@ function DashboardStack(props) {
           }}
         />
       </Stack.Navigator>
-      <FloatingButton
-      // onPress={} 
-      />
+      <FloatingButton />
     </View>
   );
 }
